@@ -1,10 +1,10 @@
-![avatar](https://avatars1.githubusercontent.com/u/790317?v=4) [https://github.com/ssim](ssim) 0
-![avatar](https://avatars0.githubusercontent.com/u/2530901?v=4) [https://github.com/kslong](kslong) 8
-![avatar](https://avatars1.githubusercontent.com/u/3007249?v=4) [https://github.com/jhmatthews](jhmatthews) 0
-![avatar](https://avatars3.githubusercontent.com/u/3064657?v=4) [https://github.com/agnwinds](agnwinds) 0
-![avatar](https://avatars0.githubusercontent.com/u/3329213?v=4) [https://github.com/Higginbottom](Higginbottom) 1
-![avatar](https://avatars1.githubusercontent.com/u/4816000?v=4) [https://github.com/lazygun37](lazygun37) 1
-![avatar](https://avatars3.githubusercontent.com/u/8093436?v=4) [https://github.com/smangham](smangham) 0
-![avatar](https://avatars2.githubusercontent.com/u/19627279?v=4) [https://github.com/saultyevil](saultyevil) 0
-![avatar](https://avatars2.githubusercontent.com/u/32335653?v=4) [https://github.com/mandyhewitt](mandyhewitt) 0
-![avatar](https://avatars2.githubusercontent.com/u/40031694?v=4) [https://github.com/Keara-Carter](Keara-Carter) 0
+![avatar](https://avatars1.githubusercontent.com/u/790317?v=4 =60x60)) [ssim](https://github.com/ssim) 0
+![avatar](https://avatars0.githubusercontent.com/u/2530901?v=4 =60x60)) [kslong](https://github.com/kslong) 8
+![avatar](https://avatars1.githubusercontent.com/u/3007249?v=4 =60x60)) [jhmatthews](https://github.com/jhmatthews) 0
+![avatar](https://avatars3.githubusercontent.com/u/3064657?v=4 =60x60)) [agnwinds](https://github.com/agnwinds) 0
+![avatar](https://avatars0.githubusercontent.com/u/3329213?v=4 =60x60)) [Higginbottom](https://github.com/Higginbottom) 1
+![avatar](https://avatars1.githubusercontent.com/u/4816000?v=4 =60x60)) [lazygun37](https://github.com/lazygun37) 1
+![avatar](https://avatars3.githubusercontent.com/u/8093436?v=4 =60x60)) [smangham](https://github.com/smangham) 0
+![avatar](https://avatars2.githubusercontent.com/u/19627279?v=4 =60x60)) [saultyevil](https://github.com/saultyevil) 0
+![avatar](https://avatars2.githubusercontent.com/u/32335653?v=4 =60x60)) [mandyhewitt](https://github.com/mandyhewitt) 0
+![avatar](https://avatars2.githubusercontent.com/u/40031694?v=4 =60x60)) [Keara-Carter](https://github.com/Keara-Carter) 0

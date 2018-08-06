@@ -127,8 +127,8 @@ if __name__ == "__main__":
 		org_name = sys.argv[1]
 		repo_name = sys.argv[2]
 
-
-		passwd = input("Enter password for {}:".format(org_name))
+		passwd = sys.argv[3]
+#		passwd = input("Enter password for {}:".format(org_name))
 		user_stats = get_user_stats(org_name, repo_name, passwd)
 		write_readme_file(user_stats)
 	else:

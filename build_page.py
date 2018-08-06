@@ -61,6 +61,9 @@ def write_readme_file(user_stats):
 	f = open("README.md", "w")
 
 	table_string = """
+### Scoring System
+2 points per issue closed, 1 per issue opened.
+
 ### This Weeks Champion:
 
 |:---:|:----:|:-------:|:-------:|

@@ -28,11 +28,11 @@ def write_readme_file(user_stats):
 ### This Weeks Champion:
 
 |:---:|:----:|:-------:|:-------:|
-|<img src="{}" width="60" height="60" /> | [{}](https://github.com/{}) | <img src="img/trophy.jpg" width="60" height="60" />| |
+|<img src="{}" width="60" height="60" /> | [{}](https://github.com/{}) | {} | <img src="img/trophy.jpg" width="60" height="60" />|
 
 |     |   User   |Issues Closed|Issues Opened|
 |:---:|:--------:|:-----------:|:-----------:|
-""".format(winner.user.avatar_url, winner.user.login, winner.user.login, )
+""".format(winner.user.avatar_url, winner.user.login, winner.user.login, winner.total_points)
 	f.write(table_string)
 
 	# write the sorted list and statistics into a table in markdown format

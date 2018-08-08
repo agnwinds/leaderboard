@@ -64,6 +64,7 @@ def write_readme_file(user_stats):
 	f = open("README.md", "w")
 
 	table_string = """
+
 ### Scoring System
 
 20 points per issue closed. 10 per issue opened. 5 per pull request. 1 per commit to upstream/dev.
@@ -73,8 +74,8 @@ def write_readme_file(user_stats):
 |:---:|:----:|:-------:|:-------:|
 |<img src="{}" width="60" height="60" /> | [{}](https://github.com/{}) | {} | <img src="img/trophy.jpg" width="60" height="60" />|
 
-|     |   User   |Issues Closed|Issues Opened|Pull Requests| Commits | 
-|:---:|:--------:|:-----------:|:-----------:|:-----------:|:-------:|
+|     |   User   |Issues Closed|Issues Opened|Pull Requests| Commits | Points |
+|:---:|:--------:|:-----------:|:-----------:|:-----------:|:-------:|:-------:|
 """.format(winner.user.avatar_url, winner.user.login, winner.user.login, winner.total_points)
 	f.write(table_string)
 
@@ -84,7 +85,7 @@ def write_readme_file(user_stats):
 		f.write("|{}| [{}](https://github.com/{})| {} | {} | {} | {} |\n".format(image_html, 
 			    u.user.login, u.user.login, user_stats[u.user.login].issues_closed, 
 			    user_stats[u.user.login].issues_opened, user_stats[u.user.login].pulls_opened, 
-			    user_stats[u.user.login].commits,))
+			    user_stats[u.user.login].commits, user_stats[u.user.login].total_points))
 	f.close()
 
 def get_user_stats(org_name, repo_name, passwd):
@@ -137,7 +138,7 @@ def get_user_stats(org_name, repo_name, passwd):
 	for c in commits:
 		user_opened = c.committer.login 
 		# check it's not a merge commit or something
-		if user_opened == "web-flow": 
+		if user_opened != "web-flow": 
 			try:	
 				user_stats[user_opened].commits += 1
 				user_stats[user_opened].total_points += POINTS_PER_COMMIT

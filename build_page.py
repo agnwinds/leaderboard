@@ -64,15 +64,14 @@ def write_readme_file(user_stats):
 	f = open("README.md", "w")
 
 	table_string = """
-
-### Scoring System
-
-20 points per issue closed. 10 per issue opened. 5 per pull request. 1 per commit to upstream/dev.
-
+	
 ### This Weeks Champion:
 
 |:---:|:----:|:-------:|:-------:|
 |<img src="{}" width="60" height="60" /> | [{}](https://github.com/{}) | {} | <img src="img/trophy.jpg" width="60" height="60" />|
+
+**Scoring System:** 
+20 points per issue closed. 10 per issue opened. 5 per pull request. 1 per commit to upstream/dev.
 
 |     |   User   |Issues Closed|Issues Opened|Pull Requests| Commits | Points |
 |:---:|:--------:|:-----------:|:-----------:|:-----------:|:-------:|:-------:|

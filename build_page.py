@@ -82,7 +82,7 @@ def write_readme_file(user_stats):
 	# write the sorted list and statistics into a table in markdown format
 	for u in (sorted(user_stats.values(), key=operator.attrgetter('total_points'), reverse=True)): 
 		image_html = '<img src="{}" width="60" height="60" />'.format(u.user.avatar_url)
-		f.write("|{}| [{}](https://github.com/{})| {} | {} | {} | {} |\n".format(image_html, 
+		f.write("|{}| [{}](https://github.com/{})| {} | {} | {} | {} | {} |\n".format(image_html, 
 			    u.user.login, u.user.login, user_stats[u.user.login].issues_closed, 
 			    user_stats[u.user.login].issues_opened, user_stats[u.user.login].pulls_opened, 
 			    user_stats[u.user.login].commits, user_stats[u.user.login].total_points))

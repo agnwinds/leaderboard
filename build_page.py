@@ -14,8 +14,10 @@ import datetime
 import operator
 import sys
 
-POINTS_PER_CLOSE = 2
-POINTS_PER_OPEN = 1
+POINTS_PER_CLOSE = 20
+POINTS_PER_OPEN = 10
+POINTS_PER_PULL = 5
+POINTS_PER_COMMIT = 1
 
 # create a username class to store statistics for each user 
 class UserClass:
@@ -25,6 +27,7 @@ class UserClass:
 		self.commits = 0
 		self.additions = 0
 		self.deletions = 0
+		self.pulls_opened = 0
 		self.pulls = 0
 		self.user = u
 		self.total_points = 0
@@ -62,15 +65,16 @@ def write_readme_file(user_stats):
 
 	table_string = """
 ### Scoring System
-2 points per issue closed, 1 per issue opened.
+
+20 points per issue closed. 10 per issue opened. 5 per pull request. 1 per commit to upstream/dev.
 
 ### This Weeks Champion:
 
 |:---:|:----:|:-------:|:-------:|
 |<img src="{}" width="60" height="60" /> | [{}](https://github.com/{}) | {} | <img src="img/trophy.jpg" width="60" height="60" />|
 
-|     |   User   |Issues Closed|Issues Opened|
-|:---:|:--------:|:-----------:|:-----------:|
+|     |   User   |Issues Closed|Issues Opened|Pull Requests| Commits | 
+|:---:|:--------:|:-----------:|:-----------:|:-----------:|:-------:|
 """.format(winner.user.avatar_url, winner.user.login, winner.user.login, winner.total_points)
 	f.write(table_string)
 
@@ -79,7 +83,8 @@ def write_readme_file(user_stats):
 		image_html = '<img src="{}" width="60" height="60" />'.format(u.user.avatar_url)
 		f.write("|{}| [{}](https://github.com/{})| {} | {} |\n".format(image_html, 
 			    u.user.login, u.user.login, user_stats[u.user.login].issues_closed, 
-			    user_stats[u.user.login].issues_opened))
+			    user_stats[u.user.login].issues_opened, user_stats[u.user.login].pulls_opened, 
+			    user_stats[u.user.login].commits,))
 	f.close()
 
 def get_user_stats(org_name, repo_name, passwd):
@@ -111,14 +116,33 @@ def get_user_stats(org_name, repo_name, passwd):
 
 	# loop over the issues and increment counters for each user
 	for i in issues:
-		if i.closed_by != None:
-			user_closed = i.closed_by.login
-			user_stats[user_closed].issues_closed += 1
-			user_stats[user_closed].total_points += POINTS_PER_CLOSE
 
-		user_opened = i.user.login 
-		user_stats[user_opened].issues_opened += 1
-		user_stats[user_opened].total_points += POINTS_PER_OPEN
+		if i.pull_request != None:
+			user_opened = i.user.login 
+			user_stats[user_opened].pulls_opened += 1
+			user_stats[user_opened].total_points += POINTS_PER_PULL
+
+		else:
+			if i.closed_by != None:
+				user_closed = i.closed_by.login
+				user_stats[user_closed].issues_closed += 1
+				user_stats[user_closed].total_points += POINTS_PER_CLOSE
+
+			user_opened = i.user.login 
+			user_stats[user_opened].issues_opened += 1
+			user_stats[user_opened].total_points += POINTS_PER_OPEN
+
+	# now gather the commit stats
+	commits = repo.get_commits(since=last_week)
+	for c in commits:
+		user_opened = c.committer.login 
+		# check it's not a merge commit or something
+		if user_opened == "web-flow": 
+			try:	
+				user_stats[user_opened].commits += 1
+				user_stats[user_opened].total_points += POINTS_PER_COMMIT
+			except KeyError:
+				print("KeyError for committer {}".format(user_opened))
 
 	return (user_stats)
 

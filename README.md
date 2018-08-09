@@ -3,15 +3,15 @@
 ### This Weeks Champion:
 
 |:---:|:----:|:-------:|:-------:|
-|<img src="https://avatars0.githubusercontent.com/u/2530901?v=4" width="60" height="60" /> | [kslong](https://github.com/kslong) | 247 | <img src="img/trophy.jpg" width="60" height="60" />|
+|<img src="https://avatars0.githubusercontent.com/u/2530901?v=4" width="60" height="60" /> | [kslong](https://github.com/kslong) | 257 | <img src="img/trophy.jpg" width="60" height="60" />|
 
 **Scoring System:** 
 20 points per issue closed. 10 per issue opened. 5 per pull request. 1 per commit to upstream/dev.
 
 |     |   User   |Issues Closed|Issues Opened|Pull Requests| Commits | Points |
 |:---:|:--------:|:-----------:|:-----------:|:-----------:|:-------:|:-------:|
-| <img src="https://avatars0.githubusercontent.com/u/2530901?v=4" width="60" height="60" /> | [kslong](https://github.com/kslong) | 4 | 15 | 0 | 17 | 247 |
-| <img src="https://avatars1.githubusercontent.com/u/3007249?v=4" width="60" height="60" /> | [jhmatthews](https://github.com/jhmatthews) | 1 | 5 | 1 | 5 | 80 |
+| <img src="https://avatars0.githubusercontent.com/u/2530901?v=4" width="60" height="60" /> | [kslong](https://github.com/kslong) | 4 | 16 | 0 | 17 | 257 |
+| <img src="https://avatars1.githubusercontent.com/u/3007249?v=4" width="60" height="60" /> | [jhmatthews](https://github.com/jhmatthews) | 2 | 6 | 2 | 3 | 113 |
 | <img src="https://avatars0.githubusercontent.com/u/3329213?v=4" width="60" height="60" /> | [Higginbottom](https://github.com/Higginbottom) | 1 | 1 | 3 | 3 | 48 |
 | <img src="https://avatars1.githubusercontent.com/u/4816000?v=4" width="60" height="60" /> | [lazygun37](https://github.com/lazygun37) | 0 | 2 | 1 | 1 | 26 |
 | <img src="https://avatars2.githubusercontent.com/u/32335653?v=4" width="60" height="60" /> | [mandyhewitt](https://github.com/mandyhewitt) | 0 | 2 | 0 | 0 | 20 |

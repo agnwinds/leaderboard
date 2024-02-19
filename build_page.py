@@ -13,6 +13,8 @@ from github import Github
 import datetime
 import operator
 import sys
+# Authentication is defined via github.Auth
+from github import Auth
 
 POINTS_PER_CLOSE = 20
 POINTS_PER_OPEN = 10
@@ -87,7 +89,7 @@ def write_readme_file(user_stats):
 			    user_stats[u.user.login].commits, user_stats[u.user.login].total_points))
 	f.close()
 
-def get_user_stats(org_name, repo_name, passwd):
+def get_user_stats(org_name, repo_name, token):
 	'''
 	Get the user statistics for a repository repo_name 
 	hosted by org_name with passwd
@@ -101,11 +103,13 @@ def get_user_stats(org_name, repo_name, passwd):
 	today = datetime.datetime.today()
 	last_week = today - datetime.timedelta(weeks=1)
 
+	auth = Auth.Token(token)
+
 	# using username and password
-	g = Github(org_name, passwd)
+	g = Github(auth=auth)
 
 	# get the repo object
-	repo = g.get_user().get_repo(repo_name)
+	repo = repo = g.get_user(org_name).get_repo(repo_name)
 
 	# get all the issues
 	issues = repo.get_issues(state="all", since=last_week)
@@ -114,23 +118,29 @@ def get_user_stats(org_name, repo_name, passwd):
 	users = repo.get_collaborators()
 	user_stats = create_user_dict(users)
 
+	print ([u for u in users])
+
 	# loop over the issues and increment counters for each user
 	for i in issues:
 
 		if i.pull_request != None:
 			user_opened = i.user.login 
-			user_stats[user_opened].pulls_opened += 1
-			user_stats[user_opened].total_points += POINTS_PER_PULL
+			if user_opened in user_stats.keys():
+				user_stats[user_opened].pulls_opened += 1
+				user_stats[user_opened].total_points += POINTS_PER_PULL
 
 		else:
 			if i.closed_by != None:
 				user_closed = i.closed_by.login
-				user_stats[user_closed].issues_closed += 1
-				user_stats[user_closed].total_points += POINTS_PER_CLOSE
+				if user_closed in user_stats.keys():
+					user_stats[user_closed].issues_closed += 1
+					user_stats[user_closed].total_points += POINTS_PER_CLOSE
 
 			user_opened = i.user.login 
-			user_stats[user_opened].issues_opened += 1
-			user_stats[user_opened].total_points += POINTS_PER_OPEN
+			print (user_stats.keys())
+			if user_opened in user_stats.keys():
+				user_stats[user_opened].issues_opened += 1
+				user_stats[user_opened].total_points += POINTS_PER_OPEN
 
 	# now gather the commit stats
 	commits = repo.get_commits(since=last_week)
@@ -154,9 +164,9 @@ if __name__ == "__main__":
 		org_name = sys.argv[1]
 		repo_name = sys.argv[2]
 
-		passwd = sys.argv[3]
+		token = sys.argv[3]
 #		passwd = input("Enter password for {}:".format(org_name))
-		user_stats = get_user_stats(org_name, repo_name, passwd)
+		user_stats = get_user_stats(org_name, repo_name, token)
 		write_readme_file(user_stats)
 	else:
 		print (__doc__)

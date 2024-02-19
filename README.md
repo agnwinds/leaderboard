@@ -2,8 +2,7 @@
 	
 ### This Weeks Champion:
 
-|:---:|:----:|:-------:|:-------:|
-|<img src="https://avatars.githubusercontent.com/u/2530901?v=4" width="60" height="60" /> | [kslong](https://github.com/kslong) | 55 | <img src="img/trophy.jpg" width="60" height="60" />|
+<img src="img/trophy.jpg" width="60" height="60" /> <img src="https://avatars.githubusercontent.com/u/2530901?v=4" width="60" height="60" /> [kslong](https://github.com/kslong) 
 
 **Scoring System:** 
 20 points per issue closed. 10 per issue opened. 5 per pull request. 1 per commit to upstream/dev.
